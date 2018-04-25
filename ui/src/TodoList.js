@@ -10,6 +10,8 @@ import * as Actions from './actions';
 import AppBar from 'material-ui/AppBar';
 import Paper from 'material-ui/Paper';
 import {Toolbar, ToolbarTitle} from 'material-ui/Toolbar';
+import ActionDone from 'material-ui/svg-icons/action/done';
+import FlatButton from 'material-ui/FlatButton';
 import {
   Table,
   TableBody,
@@ -20,8 +22,8 @@ import {
 } from 'material-ui/Table';
 import TodoEditDialog from "./TodoEditDialog";
 
-const TodoListTable = ({title, todos}) =>
-  <Paper>
+const TodoListTable = ({title, todos, action}) =>
+  <Paper style={{marginBottom: 30, overflow: 'visible'}}>
     <Toolbar>
       <ToolbarTitle text={title} />
     </Toolbar>
@@ -32,16 +34,33 @@ const TodoListTable = ({title, todos}) =>
           <TableHeaderColumn>description</TableHeaderColumn>
           <TableHeaderColumn>due date</TableHeaderColumn>
           <TableHeaderColumn>status</TableHeaderColumn>
+          {action && <TableHeaderColumn>action</TableHeaderColumn>}
         </TableRow>
       </TableHeader>
       <TableBody displayRowCheckbox={false} showRowHover={true}>
         {
-          todos.map((value, idx) =>
+          todos.map((todo, idx) =>
             <TableRow key={idx} >
-              <TableRowColumn><Link to={`/todos/${value.id}`}>{value.name}</Link></TableRowColumn>
-              <TableRowColumn>{value.description}</TableRowColumn>
-              <TableRowColumn>{value.dueDate && new Date(value.dueDate).toISOString()}</TableRowColumn>
-              <TableRowColumn>{value.status}</TableRowColumn>
+              <TableRowColumn><Link to={`/todos/${todo.id}`}>{todo.name}</Link></TableRowColumn>
+              <TableRowColumn>
+                {todo.description &&
+                todo.description.split('\n')
+                  .map((line,idx) => <div key={idx}>{line}</div>)
+                }
+                </TableRowColumn>
+              <TableRowColumn>{todo.dueDate && new Date(todo.dueDate).toISOString()}</TableRowColumn>
+              <TableRowColumn>{todo.status}</TableRowColumn>
+              {
+                action &&
+                <TableRowColumn style={{overflow: 'visiable'}}>
+                  <FlatButton
+                    label="done"
+                    primary={true}
+                    icon={<ActionDone />}
+                    onClick={() => action(todo)}
+                  />
+                  </TableRowColumn>
+              }
             </TableRow>
           )
         }
@@ -57,6 +76,10 @@ export class TodoList extends Component {
   addToDo = (todo) => {
     if (!todo.status) todo.status = 'Pending';
     this.props.dispatch(Actions.editTodoAsync(todo));
+  };
+
+  doneTodo = (todo) => {
+    this.props.dispatch(Actions.doneTodoAsync(todo));
   };
 
   render() {
@@ -76,7 +99,7 @@ export class TodoList extends Component {
           }
         />
 
-        <TodoListTable title="Pending todos" todos={pendingTodos} />
+        <TodoListTable title="Pending todos" todos={pendingTodos} action={this.doneTodo}/>
         <TodoListTable title="Done todos" todos={doneTodos} />
 
       </div>

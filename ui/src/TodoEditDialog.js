@@ -1,5 +1,4 @@
-import React, {Component, Fragment} from 'react';
-import PropTypes from 'prop-types';
+import React, {Component} from 'react';
 
 import _ from 'lodash';
 
@@ -112,7 +111,9 @@ class TodoEditDialog extends Component {
               <TableRowColumn>
                 <DropDownMenu maxHeight={300}
                               value={todo.status || 'Pending'}
-                              onChange={(event, index, value) => this.handleChange('status', value)}>
+                              onChange={(event, index, value) => this.handleChange('status', value)}
+                              disabled={mode === 'Add'}
+                >
                   <MenuItem value="Pending" key="Pending" primaryText="Pending" />
                   <MenuItem value="Done" key="Done" primaryText="Done" />
                 </DropDownMenu>
