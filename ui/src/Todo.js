@@ -10,14 +10,14 @@ import {Toolbar, ToolbarGroup, ToolbarTitle} from 'material-ui/Toolbar';
 import {
   Table,
   TableBody,
-  TableHeader,
-  TableHeaderColumn,
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
 
-import FlatButton from 'material-ui/FlatButton';
-import ActionEdit from 'material-ui/svg-icons/editor/mode-edit';
+import RaisedButton from 'material-ui/RaisedButton';
+
+import TodoEditDialog from './TodoEditDialog';
+
 
 const TodoDetailTable = ({title, todo}) =>
   <Paper>
@@ -36,7 +36,7 @@ const TodoDetailTable = ({title, todo}) =>
         </TableRow>
         <TableRow>
           <TableRowColumn>Due Date</TableRowColumn>
-          <TableRowColumn>{todo.dueDate}</TableRowColumn>
+          <TableRowColumn>{todo.dueDate && new Date(todo.dueDate).toISOString()}</TableRowColumn>
         </TableRow>
         <TableRow>
           <TableRowColumn>Status</TableRowColumn>
@@ -51,6 +51,10 @@ class Todo extends Component {
     this.props.dispatch(Actions.getTodoAsync(this.props.match.params.id));
   }
 
+  saveToDo = (newTodo) => {
+    this.props.dispatch(Actions.editTodoAsync(newTodo));
+  };
+
   render() {
     const {match, todo} = this.props;
     return (
@@ -59,15 +63,20 @@ class Todo extends Component {
           title="Todo detial"
           showMenuIconButton={false}
           iconElementRight={
-            <FlatButton
-              label="Edit"
-              primary={true}
-              icon={<ActionEdit />}
-            />
-          }
+            <TodoEditDialog mode="Edit"
+                            todo={todo}
+                            onChange={this.saveToDo}
+                            disabled={todo.status === 'Done'}
+            />}
         />
 
         <TodoDetailTable title={`todo ${match.params.id}`} todo={todo} />
+        <RaisedButton
+          label="Go back"
+          primary={true}
+          onClick={() => this.props.history.goBack()}
+          style={{marginTop: 10}}
+        />
       </div>
     );
   }

@@ -5,11 +5,11 @@ import _ from "lodash";
 
 import {Link} from 'react-router-dom';
 import {connect} from "react-redux";
-import * as Action from './actions';
+import * as Actions from './actions';
 
 import AppBar from 'material-ui/AppBar';
 import Paper from 'material-ui/Paper';
-import {Toolbar, ToolbarGroup, ToolbarTitle} from 'material-ui/Toolbar';
+import {Toolbar, ToolbarTitle} from 'material-ui/Toolbar';
 import {
   Table,
   TableBody,
@@ -18,8 +18,7 @@ import {
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
-import FlatButton from 'material-ui/FlatButton';
-import ActionAdd from 'material-ui/svg-icons/content/add-circle';
+import TodoEditDialog from "./TodoEditDialog";
 
 const TodoListTable = ({title, todos}) =>
   <Paper>
@@ -41,7 +40,7 @@ const TodoListTable = ({title, todos}) =>
             <TableRow key={idx} >
               <TableRowColumn><Link to={`/todos/${value.id}`}>{value.name}</Link></TableRowColumn>
               <TableRowColumn>{value.description}</TableRowColumn>
-              <TableRowColumn>{value.dueDate}</TableRowColumn>
+              <TableRowColumn>{value.dueDate && new Date(value.dueDate).toISOString()}</TableRowColumn>
               <TableRowColumn>{value.status}</TableRowColumn>
             </TableRow>
           )
@@ -52,8 +51,13 @@ const TodoListTable = ({title, todos}) =>
 
 export class TodoList extends Component {
   componentWillMount() {
-    this.props.dispatch && this.props.dispatch(Action.getTodosAsync());
+    this.props.dispatch && this.props.dispatch(Actions.getTodosAsync());
   }
+
+  addToDo = (todo) => {
+    if (!todo.status) todo.status = 'Pending';
+    this.props.dispatch(Actions.editTodoAsync(todo));
+  };
 
   render() {
     const {todos} = this.props;
@@ -65,10 +69,9 @@ export class TodoList extends Component {
           title="Todo List"
           showMenuIconButton={false}
           iconElementRight={
-            <FlatButton
-              label="Add"
-              primary={true}
-              icon={<ActionAdd />}
+            <TodoEditDialog
+              mode="Add"
+              onChange={this.addToDo}
             />
           }
         />
