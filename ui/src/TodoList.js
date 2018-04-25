@@ -18,13 +18,15 @@ import {
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
+import FlatButton from 'material-ui/FlatButton';
+import ActionAdd from 'material-ui/svg-icons/content/add-circle';
 
 const TodoListTable = ({title, todos}) =>
   <Paper>
     <Toolbar>
       <ToolbarTitle text={title} />
     </Toolbar>
-    <Table >
+    <Table>
       <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
         <TableRow>
           <TableHeaderColumn>name</TableHeaderColumn>
@@ -33,7 +35,7 @@ const TodoListTable = ({title, todos}) =>
           <TableHeaderColumn>status</TableHeaderColumn>
         </TableRow>
       </TableHeader>
-      <TableBody displayRowCheckbox={false}>
+      <TableBody displayRowCheckbox={false} showRowHover={true}>
         {
           todos.map((value, idx) =>
             <TableRow key={idx} >
@@ -59,7 +61,17 @@ export class TodoList extends Component {
     const doneTodos = todos.filter(t => t.status === 'Done');
     return (
       <div>
-        <AppBar title="Todo List" showMenuIconButton={false}/>
+        <AppBar
+          title="Todo List"
+          showMenuIconButton={false}
+          iconElementRight={
+            <FlatButton
+              label="Add"
+              primary={true}
+              icon={<ActionAdd />}
+            />
+          }
+        />
 
         <TodoListTable title="Pending todos" todos={pendingTodos} />
         <TodoListTable title="Done todos" todos={doneTodos} />
