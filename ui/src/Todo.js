@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 
 import * as Actions from './actions';
-import {Link} from 'react-router-dom';
 import {connect} from "react-redux";
 
 import AppBar from 'material-ui/AppBar';
 import Paper from 'material-ui/Paper';
-import {Toolbar, ToolbarGroup, ToolbarTitle} from 'material-ui/Toolbar';
+import {Toolbar, ToolbarTitle} from 'material-ui/Toolbar';
 import {
   Table,
   TableBody,
@@ -32,7 +31,12 @@ const TodoDetailTable = ({title, todo}) =>
         </TableRow>
         <TableRow>
           <TableRowColumn>Description</TableRowColumn>
-          <TableRowColumn>{todo.description}</TableRowColumn>
+          <TableRowColumn>
+            {todo.description &&
+            todo.description.split('\n')
+              .map((line,idx) => <div key={idx}>{line}</div>)
+            }
+            </TableRowColumn>
         </TableRow>
         <TableRow>
           <TableRowColumn>Due Date</TableRowColumn>

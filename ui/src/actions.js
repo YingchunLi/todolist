@@ -31,3 +31,21 @@ export const editTodoAsync = (todo) => {
     return fetchAsyncWithAction(`/api/todos`, {...requestSettings, method: 'POST'}, editTodo);
   }
 };
+
+
+export const doneTodoAsync = (oldTodo) => {
+  const todo = {...oldTodo, status: 'Done'};
+  delete todo._links;
+  const todoJson = JSON.stringify(todo);
+  const requestSettings =
+    {
+      method: 'PUT',
+      body: todoJson,
+      headers: {
+        'content-type': 'application/json'
+      }
+    };
+  if (todo.id) {
+    return fetchAsyncWithAction(`/api/todos/${todo.id}`, requestSettings, editTodo);
+  }
+};
