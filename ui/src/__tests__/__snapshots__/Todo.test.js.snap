@@ -46,7 +46,7 @@ exports[`Todo matches snapshot 1`] = `
         }
       }
     >
-      Todo detial
+      Todo detail
     </h1>
     <div
       style={
@@ -170,39 +170,6 @@ exports[`Todo matches snapshot 1`] = `
       }
     }
   >
-    <div
-      className={undefined}
-      style={
-        Object {
-          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-          "backgroundColor": "rgb(232, 232, 232)",
-          "boxSizing": "border-box",
-          "display": "flex",
-          "height": 56,
-          "justifyContent": "space-between",
-          "muiPrepared": true,
-          "padding": "0px 24px",
-        }
-      }
-    >
-      <span
-        style={
-          Object {
-            "fontFamily": "Roboto, sans-serif",
-            "fontSize": 20,
-            "lineHeight": "56px",
-            "muiPrepared": true,
-            "overflow": "hidden",
-            "paddingRight": 16,
-            "position": "relative",
-            "textOverflow": "ellipsis",
-            "whiteSpace": "nowrap",
-          }
-        }
-      >
-        todo 1
-      </span>
-    </div>
     <div
       style={
         Object {

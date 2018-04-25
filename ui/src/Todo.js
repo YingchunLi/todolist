@@ -5,7 +5,6 @@ import {connect} from "react-redux";
 
 import AppBar from 'material-ui/AppBar';
 import Paper from 'material-ui/Paper';
-import {Toolbar, ToolbarTitle} from 'material-ui/Toolbar';
 import {
   Table,
   TableBody,
@@ -20,9 +19,6 @@ import TodoEditDialog from './TodoEditDialog';
 
 const TodoDetailTable = ({title, todo}) =>
   <Paper>
-    <Toolbar>
-      <ToolbarTitle text={title} />
-    </Toolbar>
     <Table >
       <TableBody displayRowCheckbox={false} showRowHover={true}>
         <TableRow>
@@ -64,7 +60,7 @@ class Todo extends Component {
     return (
       <div>
         <AppBar
-          title="Todo detial"
+          title="Todo detail"
           showMenuIconButton={false}
           iconElementRight={
             <TodoEditDialog mode="Edit"
