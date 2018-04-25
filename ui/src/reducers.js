@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 import {handleActions} from 'redux-actions';
 
 import _ from 'lodash';
@@ -31,9 +31,30 @@ export const asyncFetchHandler = entityName =>
     return Object.assign({}, state, {fetching: false, byId, error: false});
   };
 
+export const asyncFetchByIdHandler =
+  (state, action) => {
+    // error
+    if (action.error) {
+      return Object.assign({}, state, {fetching: false, error: _.get(action.error, 'errorPayload', true)});
+    }
+
+    // requested
+    if (!action.payload || !action.payload.status || !action.payload.json) {
+      return Object.assign({}, state, {fetching: true, error: false});
+    }
+
+    // success
+    const entity = action.payload.json;
+    const id = entity._links.self.href.split('/').pop();
+    const byId = Object.assign({}, state.byId, {[id]: {...entity, id}});
+
+    return Object.assign({}, state, {fetching: false, byId, error: false});
+  };
 
 const todos = handleActions({
-    [Actions.getTodos]: asyncFetchHandler('todos'),
+  [Actions.getTodos]: asyncFetchHandler('todos'),
+  [Actions.getTodo]: asyncFetchByIdHandler,
+
   },
   {
     error: false,
