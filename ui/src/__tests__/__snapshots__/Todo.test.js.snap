@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Todo matches snapshot 1`] = `
+<div>
+  <div
+    className={undefined}
+    style={
+      Object {
+        "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+        "backgroundColor": "#00bcd4",
+        "borderRadius": "0px",
+        "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
+               0 1px 4px rgba(0, 0, 0, 0.12)",
+        "boxSizing": "border-box",
+        "color": "rgba(0, 0, 0, 0.87)",
+        "display": "flex",
+        "fontFamily": "Roboto, sans-serif",
+        "muiPrepared": true,
+        "paddingLeft": 24,
+        "paddingRight": 24,
+        "position": "relative",
+        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+        "width": "100%",
+        "zIndex": 1100,
+      }
+    }
+  >
+    <h1
+      onClick={[Function]}
+      style={
+        Object {
+          "boxFlex": 1,
+          "color": "#ffffff",
+          "flex": "1",
+          "fontSize": 24,
+          "fontWeight": 400,
+          "height": 64,
+          "letterSpacing": 0,
+          "lineHeight": "64px",
+          "margin": 0,
+          "muiPrepared": true,
+          "overflow": "hidden",
+          "paddingTop": 0,
+          "textOverflow": "ellipsis",
+          "whiteSpace": "nowrap",
+        }
+      }
+    >
+      Todo detial
+    </h1>
+  </div>
+  <div
+    style={
+      Object {
+        "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+        "backgroundColor": "#ffffff",
+        "borderRadius": 2,
+        "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
+               0 1px 4px rgba(0, 0, 0, 0.12)",
+        "boxSizing": "border-box",
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontFamily": "Roboto, sans-serif",
+        "muiPrepared": true,
+        "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+      }
+    }
+  >
+    <div
+      className={undefined}
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+          "backgroundColor": "rgb(232, 232, 232)",
+          "boxSizing": "border-box",
+          "display": "flex",
+          "height": 56,
+          "justifyContent": "space-between",
+          "muiPrepared": true,
+          "padding": "0px 24px",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "fontFamily": "Roboto, sans-serif",
+            "fontSize": 20,
+            "lineHeight": "56px",
+            "muiPrepared": true,
+            "overflow": "hidden",
+            "paddingRight": 16,
+            "position": "relative",
+            "textOverflow": "ellipsis",
+            "whiteSpace": "nowrap",
+          }
+        }
+      >
+        todo 1
+      </span>
+    </div>
+  </div>
+</div>
+`;
