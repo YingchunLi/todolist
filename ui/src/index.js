@@ -1,8 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+
+// routing
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+
+// Redux
+import configureStore from './store';
+import { Provider } from 'react-redux';
+
+// service worker for offline-first loading
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// style
+import './index.css';
+
+// material ui
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+// components
+import App from './App';
+import Todo from "./Todo";
+import TodoList from "./TodoList";
+
+const store = configureStore();
+console.log('Store configured with initial state: ', store.getState());
+
+ReactDOM.render(
+  <BrowserRouter>
+    <MuiThemeProvider>
+      <Provider store={store}>
+        <Switch>
+          <Route exact path="/" component={App}/>
+          <Route exact path="/todos" component={TodoList}/>
+          <Route path="/todos/:id" component={Todo}/>
+        </Switch>
+      </Provider>
+    </MuiThemeProvider>
+
+
+  </BrowserRouter>,
+  document.getElementById('root'));
+
 registerServiceWorker();
