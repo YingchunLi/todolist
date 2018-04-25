@@ -54,6 +54,7 @@ export const asyncFetchByIdHandler =
 const todos = handleActions({
   [Actions.getTodos]: asyncFetchHandler('todos'),
   [Actions.getTodo]: asyncFetchByIdHandler,
+  [Actions.editTodo]: asyncFetchByIdHandler,
 
   },
   {
