@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoList connected component works 1`] = `
+<div>
+  <h2>
+    This is the todo list page
+  </h2>
+  <table
+    border="1"
+  >
+    <thead>
+      <tr>
+        <th>
+          id
+        </th>
+        <th>
+          name
+        </th>
+        <th>
+          description
+        </th>
+        <th>
+          due date
+        </th>
+        <th>
+          status
+        </th>
+      </tr>
+    </thead>
+    <tbody />
+  </table>
+</div>
+`;
+
+exports[`TodoList has no todos 1`] = `
+<div>
+  <h2>
+    This is the todo list page
+  </h2>
+  <table
+    border="1"
+  >
+    <thead>
+      <tr>
+        <th>
+          id
+        </th>
+        <th>
+          name
+        </th>
+        <th>
+          description
+        </th>
+        <th>
+          due date
+        </th>
+        <th>
+          status
+        </th>
+      </tr>
+    </thead>
+    <tbody />
+  </table>
+</div>
+`;
+
+exports[`TodoList has some todos 1`] = `
+<div>
+  <h2>
+    This is the todo list page
+  </h2>
+  <table
+    border="1"
+  >
+    <thead>
+      <tr>
+        <th>
+          id
+        </th>
+        <th>
+          name
+        </th>
+        <th>
+          description
+        </th>
+        <th>
+          due date
+        </th>
+        <th>
+          status
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <a
+            href="/todos/1"
+            onClick={[Function]}
+          >
+            1
+          </a>
+        </td>
+        <td>
+          milk
+        </td>
+        <td>
+          remember the milk
+        </td>
+        <td>
+          2019-01-30T14:00:00.000Z
+        </td>
+        <td>
+          Pending
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
