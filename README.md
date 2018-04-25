@@ -8,7 +8,7 @@ You need to run both to make it work.
 ### start server app 
 
 Run the following commands:
-`cd server && ./gradlew build && java -jar build/libs/todolist-0.0.1-SNAPSHOT.jar`
+`cd server && ./gradlew build && java -jar build/libs/todolist-0.0.1.jar`
 
 and check server is up and running by looking at [http://localhost:8088/api](http://localhost:8088/api).
 

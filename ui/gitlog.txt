@@ -1,0 +1,133 @@
+commit bbba6fbfe3be2c11e38e7c12cfdd3990ea59308c
+Merge: fdb6950 dc0f5bf
+Author: Yingchun Li <ncepu.lyc@gmail.com>
+Date:   Thu Apr 26 02:55:57 2018 +1000
+
+    Merge branch 'release/0.0.1'
+
+commit dc0f5bf51ca8ab233d92725c9a151419fe1118cf
+Author: Yingchun Li <ncepu.lyc@gmail.com>
+Date:   Thu Apr 26 02:55:33 2018 +1000
+
+    update version
+
+commit c23f204effdca357bbaf0c096fe7098cb7159185
+Author: Yingchun Li <ncepu.lyc@gmail.com>
+Date:   Thu Apr 26 02:54:00 2018 +1000
+
+    Update readme
+
+commit 2a0c1cb6e39cfad4a356ae0da65095823e7b03bd
+Merge: b22c94e 2e4a8a4
+Author: Yingchun Li <ncepu.lyc@gmail.com>
+Date:   Thu Apr 26 02:43:50 2018 +1000
+
+    Merge branch 'feature/mark-as-done' into develop
+
+commit 2e4a8a403d047b1c6fe0b90040a8348381023d27
+Author: Yingchun Li <ncepu.lyc@gmail.com>
+Date:   Thu Apr 26 02:22:35 2018 +1000
+
+    Feature - mark todo as done
+
+commit b22c94e5915a7cd65da3326f467daea41aaf8f5f
+Merge: 6b482b5 3a76e74
+Author: Yingchun Li <ncepu.lyc@gmail.com>
+Date:   Thu Apr 26 01:38:58 2018 +1000
+
+    Merge branch 'feature/add-todo' into develop
+
+commit 3a76e7486f5d7c94e023a798fef23e546ac7acd5
+Author: Yingchun Li <ncepu.lyc@gmail.com>
+Date:   Thu Apr 26 01:38:44 2018 +1000
+
+    Add/Edit todo dialog and backend server interaction
+
+commit 6b482b52c64657b55ed10704ce7ad285e3f88292
+Merge: b646035 8daf9cb
+Author: Yingchun Li <ncepu.lyc@gmail.com>
+Date:   Thu Apr 26 00:02:12 2018 +1000
+
+    Merge branch 'feature/add-todo' into develop
+
+commit 8daf9cb1d760e6a9e8e5afea535054eed555fd49
+Author: Yingchun Li <ncepu.lyc@gmail.com>
+Date:   Thu Apr 26 00:01:55 2018 +1000
+
+    Finish feature - View the details of a single todo
+
+commit b646035b3a58edb0d3a8bf82d658773b86f682a8
+Merge: d870ff4 5cb0ee7
+Author: Yingchun Li <ncepu.lyc@gmail.com>
+Date:   Wed Apr 25 22:57:19 2018 +1000
+
+    Merge branch 'feature/material-ui' into develop
+
+commit 5cb0ee79eb0f594d97cda2cc95833455c64caa3f
+Author: Yingchun Li <ncepu.lyc@gmail.com>
+Date:   Wed Apr 25 22:56:53 2018 +1000
+
+    Add material ui support
+
+commit d870ff48fff0c91e33c329ead298cf3fbbb90fc4
+Author: Yingchun Li <ncepu.lyc@gmail.com>
+Date:   Wed Apr 25 21:59:04 2018 +1000
+
+    Add redux and action infrasture
+
+commit d04163809bf282d1e85762be3f332f6c5dc28638
+Author: Yingchun Li <ncepu.lyc@gmail.com>
+Date:   Wed Apr 25 10:54:16 2018 +1000
+
+    Set up router and unit test structure
+
+commit fdb6950cf26939e63552fe3938417ac5f07efe55
+Author: Yingchun Li <y.li@eventzero.com>
+Date:   Tue Apr 24 23:30:26 2018 +1000
+
+    use file based h2 datasource
+
+commit 3130d874d57b7925265a7916fd4ed3b1c8fd5afa
+Author: Yingchun Li <y.li@eventzero.com>
+Date:   Tue Apr 24 23:12:51 2018 +1000
+
+    Change api url, banner txt and expose more actuator endpoints
+
+commit d301283f38788657ae10c752a2fbf457a96a823e
+Author: Yingchun Li <y.li@eventzero.com>
+Date:   Tue Apr 24 23:00:02 2018 +1000
+
+    Add entity class repository class and export as RestResource
+
+commit 41daca3d760f86ef2771cd4f5a76ec3bb2b730dd
+Author: Yingchun Li <y.li@eventzero.com>
+Date:   Mon Apr 23 23:12:03 2018 +1000
+
+    Add frontend ui project generated from create-react-app
+
+commit 80af6d5d950b3f1ee93d019d6c2b588fdc721b9a
+Author: Yingchun Li <y.li@eventzero.com>
+Date:   Mon Apr 23 23:08:21 2018 +1000
+
+    Add initial backend server project generated from Spring Initializr (start.spring.io)
+    
+    Dependencies used:
+    ---------------------
+      Rest Repositories
+      Rest Repositories HAL Browser
+      JPA
+      H2
+      Actuator
+      DevTools
+
+commit c44381945e3e3a4283a63b38b0f9acc93f70fdd8
+Author: Yingchun Li <ncepu.lyc@gmail.com>
+Date:   Mon Apr 23 22:53:49 2018 +1000
+
+    Create README.md
+
+commit 29144c8b44bef0314182c51e6e98e5262a36c587
+Author: Yingchun Li <ncepu.lyc@gmail.com>
+Date:   Mon Apr 23 22:53:20 2018 +1000
+
+    Initial commit
