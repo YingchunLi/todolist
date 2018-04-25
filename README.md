@@ -15,8 +15,8 @@ and check server is up and running by looking at [http://localhost:8088/api](htt
 ### start the ui app 
 
 Run the following commands (in a different terminal):
-`cd ui && yarn start`
+`cd ui && yarn && yarn start`
 
-a browser tab will be opened automatically which loads [http://localhost:3000](http://localhost:3000).
+A browser tab will be opened automatically which loads [http://localhost:3000](http://localhost:3000).
 
 You can start using the app now from this browser window.
