@@ -1,16 +1,20 @@
 import React from "react";
 import {MemoryRouter, Route} from "react-router-dom";
 
-import {shallow, mount, render} from "enzyme";
+import {shallow, mount} from "enzyme";
+import renderer from "react-test-renderer";
 
 import Todo from "../Todo";
+import {withStoreAndMaterialUI} from '../test-utils';
+
+const TodoWithStoreAndMaterialUI = withStoreAndMaterialUI(Todo);
 
 describe("Todo", () => {
     it("maps to /todos", () => {
       const wrapper = mount(
         <MemoryRouter initialEntries={[`/todos/1`]}>
           <switch>
-            <Route path="/todos/:id" component={Todo}/>
+            <Route path="/todos/:id" component={TodoWithStoreAndMaterialUI}/>
           </switch>
         </MemoryRouter>
       );
@@ -19,13 +23,11 @@ describe("Todo", () => {
       expect(wrapper.find(Todo).props().match.params.id).toBe('1');
     });
 
-    it("has a title", () => {
-      const wrapper = shallow(
-        <Todo match={{params: {id: 1}}}/>
-      );
-
-      expect(wrapper.find('h2').length).toBe(1);
-      expect(wrapper.find('h2').text()).toBe(`This is the todo page 1`);
+    it("matches snapshot", () => {
+      const component = renderer.create(
+        <TodoWithStoreAndMaterialUI match={{params: {id: 1}}} />
+      ).toJSON();
+      expect(component).toMatchSnapshot();
     });
 
   }

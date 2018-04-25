@@ -14,6 +14,9 @@ import registerServiceWorker from './registerServiceWorker';
 // style
 import './index.css';
 
+// material ui
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 // components
 import App from './App';
 import Todo from "./Todo";
@@ -24,13 +27,16 @@ console.log('Store configured with initial state: ', store.getState());
 
 ReactDOM.render(
   <BrowserRouter>
-    <Provider store={store}>
-      <Switch>
-        <Route exact path="/" component={App}/>
-        <Route exact path="/todos" component={TodoList}/>
-        <Route path="/todos/:id" component={Todo}/>
-      </Switch>
-    </Provider>
+    <MuiThemeProvider>
+      <Provider store={store}>
+        <Switch>
+          <Route exact path="/" component={App}/>
+          <Route exact path="/todos" component={TodoList}/>
+          <Route path="/todos/:id" component={Todo}/>
+        </Switch>
+      </Provider>
+    </MuiThemeProvider>
+
 
   </BrowserRouter>,
   document.getElementById('root'));

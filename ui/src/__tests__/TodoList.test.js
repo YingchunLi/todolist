@@ -2,17 +2,19 @@ import React from "react";
 import {MemoryRouter, Route} from "react-router-dom";
 
 import renderer from "react-test-renderer";
-import {shallow, mount} from "enzyme";
+import {mount} from "enzyme";
 
-import {withStore} from '../test-utils';
+import {withStoreAndMaterialUI} from '../test-utils';
 import ConnectedTodoList, {TodoList} from "../TodoList";
+
+const TodoListWithStoreAndMaterialUI = withStoreAndMaterialUI(TodoList);
 
 describe("TodoList", () => {
     it("maps to /todos", () => {
       const wrapper = mount(
         <MemoryRouter initialEntries={[`/todos`]}>
           <switch>
-            <Route path="/todos" component={TodoList}/>
+            <Route path="/todos" component={TodoListWithStoreAndMaterialUI}/>
           </switch>
         </MemoryRouter>
       );
@@ -21,20 +23,9 @@ describe("TodoList", () => {
       expect(wrapper.find(TodoList).props().location.pathname).toBe("/todos");
     });
 
-    it("has a title and a table", () => {
-      const wrapper = shallow(
-        <TodoList dispatch={(action) => {
-        }}/>
-      );
-
-      expect(wrapper.find('h2').length).toBe(1);
-      expect(wrapper.find('h2').text()).toBe('This is the todo list page');
-      expect(wrapper.find('table').length).toBe(1);
-    });
-
     it("has no todos", () => {
       const component = renderer.create(
-        <TodoList/>
+        <TodoListWithStoreAndMaterialUI />
       ).toJSON();
       expect(component).toMatchSnapshot();
     });
@@ -51,7 +42,7 @@ describe("TodoList", () => {
       ];
       const component = renderer.create(
         <MemoryRouter initialEntries={[`/todos`]}>
-          <TodoList todos={todos}/>
+          <TodoListWithStoreAndMaterialUI todos={todos}/>
         </MemoryRouter>
 
       ).toJSON();
@@ -68,9 +59,9 @@ describe("TodoList", () => {
           status: 'Pending'
         },
       ];
-      const TodoListWithStore = withStore(ConnectedTodoList);
+      const TodoListWithStoreAndMaterialUI = withStoreAndMaterialUI(ConnectedTodoList);
       const component = renderer.create(
-        <TodoListWithStore />
+        <TodoListWithStoreAndMaterialUI />
       ).toJSON();
       expect(component).toMatchSnapshot();
     });
